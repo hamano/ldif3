@@ -312,7 +312,7 @@ class LDIFParser(object):
         attr_type = line[0:colon_pos].decode('ascii')
 
         if line[colon_pos:].startswith(b'::'):
-            attr_value = base64.decodestring(line[colon_pos + 2:])
+            attr_value = base64.decodebytes(line[colon_pos + 2:])
         elif line[colon_pos:].startswith(b':<'):
             url = line[colon_pos + 2:].strip()
             attr_value = b''
